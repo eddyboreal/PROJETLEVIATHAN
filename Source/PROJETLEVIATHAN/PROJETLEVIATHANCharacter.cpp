@@ -7,6 +7,7 @@
 #include "Components/InputComponent.h"
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
+#include "Engine.h"
 #include "GameFramework/SpringArmComponent.h"
 
 //////////////////////////////////////////////////////////////////////////
@@ -76,6 +77,15 @@ void APROJETLEVIATHANCharacter::SetupPlayerInputComponent(class UInputComponent*
 	PlayerInputComponent->BindAction("ResetVR", IE_Pressed, this, &APROJETLEVIATHANCharacter::OnResetVR);
 }
 
+
+void APROJETLEVIATHANCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].OriginX = 0.4f; // default: 0.f
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].OriginY = 0.f; // default: 0.f
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].SizeX = .6f; // default 1.f
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].SizeY = 1.f; // default 1.f
+}
 
 void APROJETLEVIATHANCharacter::OnResetVR()
 {
