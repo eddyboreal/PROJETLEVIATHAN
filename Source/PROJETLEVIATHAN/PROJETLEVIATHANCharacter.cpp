@@ -8,6 +8,7 @@
 #include "GameFramework/CharacterMovementComponent.h"
 #include "GameFramework/Controller.h"
 #include "GameFramework/SpringArmComponent.h"
+#include "Engine.h"
 
 //////////////////////////////////////////////////////////////////////////
 // APROJETLEVIATHANCharacter
@@ -45,6 +46,15 @@ APROJETLEVIATHANCharacter::APROJETLEVIATHANCharacter()
 
 	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character) 
 	// are set in the derived blueprint asset named MyCharacter (to avoid direct content references in C++)
+}
+
+void APROJETLEVIATHANCharacter::BeginPlay()
+{
+	Super::BeginPlay();
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].OriginX = 0.4f; // default: 0.f
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].OriginY = 0.f; // default: 0.f
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].SizeX = .6f; // default 1.f
+	GEngine->GameViewport->SplitscreenInfo[0].PlayerData[0].SizeY = 1.f; // default 1.f
 }
 
 //////////////////////////////////////////////////////////////////////////
