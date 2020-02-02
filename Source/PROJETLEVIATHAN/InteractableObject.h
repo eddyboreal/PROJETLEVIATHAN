@@ -22,6 +22,14 @@ protected:
 	FString id;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ActiveModifiers")
 	bool isSizeable;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resize Information")
+		int MultiplyFactor;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resize Information")
+		int Min;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resize Information")
+		int Max;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Resize Information")
+		int XYZ;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "ActiveModifiers")
 	bool isHideable;
 
